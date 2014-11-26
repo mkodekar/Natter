@@ -1,0 +1,9 @@
+<resources>
+
+	<dimen name="touchTarget_minSize">48dip</dimen>
+
+	<dimen name="appBar_size">56dip</dimen> <!-- Overridden 64dip on tablet screens -->
+
+	<dimen name="sideNav_divider_size">16dip</dimen>
+
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+
+	<color name="deepPurple_500">#673AB7</color>
+	<color name="deepPurple_700">#512DA8</color>
+
+	<color name="black_a12">#1e000000</color>
+	<color name="black_a26">#42000000</color>
+	<color name="black_a54">#89000000</color>
+	<color name="black_a87">#dd000000</color>
+
+	<color name="white_a12">#1effffff</color>
+	<color name="white_a30">#4cffffff</color>
+	<color name="white_a70">#b2ffffff</color>
+	<color name="white_a100">#ffffffff</color>
+
+	<color name="grey_50">#fafafa</color>
+	<color name="grey_100">#f5f5f5</color>
+	<color name="grey_200">#eeeeee</color>
+	<color name="grey_300">#e0e0e0</color>
+
+</resources>

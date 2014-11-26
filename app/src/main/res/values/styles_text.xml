@@ -1,0 +1,145 @@
+<resources>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Material standard text styles
+		http://www.google.com/design/spec/style/typography.html -->
+
+	<style name="Text">
+		<item name="android:textColor">@color/black_a87</item>
+	</style>
+
+	<style name="Text.Display4" parent="Text">
+		<item name="android:textSize">112sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<style name="Text.Display3" parent="Text">
+		<item name="android:textSize">56sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<style name="Text.Display2" parent="Text">
+		<item name="android:textSize">45sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<style name="Text.Display1" parent="Text">
+		<item name="android:textSize">34sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<style name="Text.Headline" parent="Text">
+		<item name="android:textSize">24sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Title" parent="Text">
+		<item name="android:textSize">20sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+	</style>
+
+	<style name="Text.Subhead" parent="Text">
+		<item name="android:textSize">16sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Body2" parent="Text">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+	</style>
+
+	<style name="Text.Body1" parent="Text">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Caption" parent="Text">
+		<item name="android:textSize">12sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	    Inverted -->
+
+	<style name="Text.Inverted">
+		<item name="android:textColor">@color/white_a100</item>
+	</style>
+
+	<style name="Text.Display4.Inverted" parent="Text">
+		<item name="android:textSize">112sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+	<style name="Text.Display3.Inverted" parent="Text">
+		<item name="android:textSize">56sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+	<style name="Text.Display2.Inverted" parent="Text">
+		<item name="android:textSize">45sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+	<style name="Text.Display1.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">34sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+	<style name="Text.Headline.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">24sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Title.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">20sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+	</style>
+
+	<style name="Text.Subhead.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">16sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Body2.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+	</style>
+
+	<style name="Text.Body1.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="Text.Caption.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">12sp</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Widget text styles -->
+
+	<style name="Text.ListSubheader" parent="Text">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textColor">@color/black_a54</item>
+	</style>
+
+	<style name="Text.ListSubheader.Inverted" parent="Text.Inverted">
+		<item name="android:textSize">14sp</item>
+		<item name="android:fontFamily">sans-serif-medium</item>
+		<item name="android:textColor">@color/white_a70</item>
+	</style>
+
+</resources>
