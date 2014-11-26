@@ -1,0 +1,12 @@
+<resources>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Keylines -->
+	<dimen name="keyline_padding">16dip</dimen>
+	<dimen name="keyline_content">72dip</dimen>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Lists -->
+	<dimen name="listDivider_padding">8dip</dimen>
+
+</resources>
