@@ -6,4 +6,6 @@
 
 	<dimen name="sideNav_divider_size">16dip</dimen>
 
+	<dimen name="avatar_size">40dip</dimen>
+
 </resources>
