@@ -1,0 +1,33 @@
+## Build packages
+*.apk
+*.ap_
+
+## Dalvik files
+*.dex
+
+## Java class files
+*.class
+
+## Generated files
+gen/
+build/
+
+## Local configs
+local.properties
+.idea/
+*.iml
+
+## Proguard folder
+proguard/
+
+## Gradle wrapper script and files
+gradlew*
+gradle/
+.gradle/
+
+## Folder configs
+.directory
+.DS_Store
+
+## File backups
+*~
