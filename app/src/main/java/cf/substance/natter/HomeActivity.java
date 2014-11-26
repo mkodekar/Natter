@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -26,6 +31,7 @@ public class HomeActivity extends ActionBarActivity {
 		ButterKnife.inject( this );
 
 		list.setLayoutManager( new LinearLayoutManager( this ));
+		list.setAdapter( new DemoAdapter() );
 	}
 
 	//--------------------------------------------------------------------------
@@ -48,6 +54,52 @@ public class HomeActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected( item );
 	}
 
+	//--------------------------------------------------------------------------
+
+	//==========================================================================
+	class DemoAdapter extends RecyclerView.Adapter<ViewHolder> {
+		//----------------------------------------------------------------------
+
+		@Override public int getItemCount() {
+			return 3;
+		}
+
+		//----------------------------------------------------------------------
+
+		@Override public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType ) {
+			LayoutInflater inflater = LayoutInflater.from( parent.getContext() );
+			return new ViewHolder( inflater.inflate( R.layout.listitem_twoline_withavatar, parent, false ));
+		}
+
+		//----------------------------------------------------------------------
+
+		@Override public void onBindViewHolder( ViewHolder holder, int position ) {
+			holder.avatar.setBackgroundColor( getResources().getColor( R.color.black_a12 ));
+			holder.primary.setText( "Item " + position );
+			holder.secondary.setText( "Lorem slipstream Dolan sits if he fits" );
+		}
+
+		//----------------------------------------------------------------------
+	}
+	//--------------------------------------------------------------------------
+
+	//==========================================================================
+	class ViewHolder extends RecyclerView.ViewHolder {
+		//----------------------------------------------------------------------
+
+		@InjectView( R.id.avatar    ) ImageView avatar;
+		@InjectView( R.id.primary   ) TextView primary;
+		@InjectView( R.id.secondary ) TextView secondary;
+
+		//----------------------------------------------------------------------
+
+		public ViewHolder( View itemView ) {
+			super( itemView );
+			ButterKnife.inject( this, itemView );
+		}
+
+		//----------------------------------------------------------------------
+	}
 	//--------------------------------------------------------------------------
 }
 //------------------------------------------------------------------------------
