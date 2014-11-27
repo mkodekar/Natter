@@ -17,7 +17,7 @@ import butterknife.InjectView;
 import cf.substance.natter.R;
 
 //==============================================================================
-public class HomeActivity extends ActionBarActivity {
+public class OverviewActivity extends ActionBarActivity {
 	//--------------------------------------------------------------------------
 
 	@InjectView( R.id.list ) RecyclerView list;
@@ -27,7 +27,7 @@ public class HomeActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
-		setContentView( R.layout.activity_home );
+		setContentView( R.layout.activity_overview );
 
 		ButterKnife.inject( this );
 
@@ -39,7 +39,7 @@ public class HomeActivity extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu( Menu menu ) {
-		getMenuInflater().inflate( R.menu.activity_home, menu );
+		getMenuInflater().inflate( R.menu.activity_overview, menu );
 		return true;
 	}
 

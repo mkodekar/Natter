@@ -9,7 +9,7 @@
 
 	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-        <activity android:name=".activity.HomeActivity"
+        <activity android:name=".activity.OverviewActivity"
             android:label="@string/app_label">
 
             <intent-filter>
