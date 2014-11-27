@@ -1,4 +1,4 @@
-package cf.substance.natter;
+package cf.substance.natter.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cf.substance.natter.R;
 
 //==============================================================================
 public class HomeActivity extends ActionBarActivity {

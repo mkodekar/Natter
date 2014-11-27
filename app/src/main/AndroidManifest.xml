@@ -9,15 +9,30 @@
 
 	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-        <activity
-            android:name="cf.substance.natter.HomeActivity"
+        <activity android:name=".activity.HomeActivity"
             android:label="@string/app_label">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
+	    <activity android:name=".activity.ConversationActivity" />
+
+
+	    <activity android:name=".activity.ArchivedActivity"
+		    android:label="@string/activityLabel_archived" />
+
+
+	    <activity android:name=".activity.SettingsActivity"
+		    android:label="@string/activityLabel_settings" />
+
+
+	    <activity android:name=".activity.HelpAndFeedbackActivity"
+		    android:label="@string/activityLabel_helpAndFeedback" />
 
 	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
