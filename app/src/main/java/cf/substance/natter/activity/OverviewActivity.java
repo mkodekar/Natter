@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import cf.substance.natter.R;
 
 //==============================================================================
@@ -99,6 +100,8 @@ public class OverviewActivity extends ActionBarActivity {
 	class ViewHolder extends RecyclerView.ViewHolder {
 		//----------------------------------------------------------------------
 
+		int index;
+
 		@InjectView( R.id.avatar    ) ImageView avatar;
 		@InjectView( R.id.primary   ) TextView primary;
 		@InjectView( R.id.secondary ) TextView secondary;
@@ -108,6 +111,13 @@ public class OverviewActivity extends ActionBarActivity {
 		public ViewHolder( View itemView ) {
 			super( itemView );
 			ButterKnife.inject( this, itemView );
+		}
+
+		//----------------------------------------------------------------------
+
+		@OnClick( R.id.item )
+		void onItemClick() {
+			startActivity( new Intent( OverviewActivity.this, ConversationActivity.class ));
 		}
 
 		//----------------------------------------------------------------------
