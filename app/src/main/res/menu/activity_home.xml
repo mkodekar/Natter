@@ -2,8 +2,17 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:context=".HomeActivity">
+
+	<item android:id="@+id/action_archived"
+		android:title="@string/action_archived"
+		app:showAsAction="never" />
+
 	<item android:id="@+id/action_settings"
 		android:title="@string/action_settings"
-		android:orderInCategory="100"
 		app:showAsAction="never" />
+
+	<item android:id="@+id/action_helpAndFeedback"
+		android:title="@string/action_helpAndFeedback"
+		app:showAsAction="never" />
+
 </menu>

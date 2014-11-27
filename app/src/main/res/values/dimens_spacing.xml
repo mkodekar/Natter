@@ -7,6 +7,7 @@
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		Lists -->
+	<dimen name="list_padding_vertical">8dip</dimen>
 	<dimen name="listDivider_padding">8dip</dimen>
 
 </resources>
