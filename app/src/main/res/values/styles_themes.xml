@@ -1,0 +1,11 @@
+<resources>
+
+	<style name="Theme.App" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="colorPrimary">@color/deepPurple_500</item>
+		<item name="colorPrimaryDark">@color/deepPurple_700</item>
+		<item name="colorAccent">@color/deepPurple_500</item>
+
+		<item name="android:windowBackground">@color/grey_200</item>
+	</style>
+
+</resources>
