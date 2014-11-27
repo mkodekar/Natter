@@ -1,6 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/item"
 	android:layout_width="match_parent"
-	android:layout_height="72dip">
+	android:layout_height="72dip"
+
+	android:background="?attr/selectableItemBackground">
 
 	<ImageView android:id="@+id/avatar"
 		android:layout_width="@dimen/avatar_size"

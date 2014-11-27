@@ -2,4 +2,8 @@
 
 	<string name="app_label">Messaging</string>
 
+	<string name="activityLabel_archived">Archived</string>
+	<string name="activityLabel_settings">Settings</string>
+	<string name="activityLabel_helpAndFeedback">Help &amp; feedback</string>
+
 </resources>

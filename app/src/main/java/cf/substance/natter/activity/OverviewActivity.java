@@ -1,5 +1,6 @@
-package cf.substance.natter;
+package cf.substance.natter.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,9 +15,11 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
+import cf.substance.natter.R;
 
 //==============================================================================
-public class HomeActivity extends ActionBarActivity {
+public class OverviewActivity extends ActionBarActivity {
 	//--------------------------------------------------------------------------
 
 	@InjectView( R.id.list ) RecyclerView list;
@@ -26,7 +29,7 @@ public class HomeActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
-		setContentView( R.layout.activity_home );
+		setContentView( R.layout.activity_overview );
 
 		ButterKnife.inject( this );
 
@@ -38,7 +41,7 @@ public class HomeActivity extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu( Menu menu ) {
-		getMenuInflater().inflate( R.menu.activity_home, menu );
+		getMenuInflater().inflate( R.menu.activity_overview, menu );
 		return true;
 	}
 
@@ -47,8 +50,18 @@ public class HomeActivity extends ActionBarActivity {
 	@Override
 	public boolean onOptionsItemSelected( MenuItem item ) {
 		switch( item.getItemId() ) {
+
+			case R.id.action_archived:
+				startActivity( new Intent( this, ArchivedActivity.class ));
+				return true;
+
 			case R.id.action_settings:
-			return true;
+				startActivity( new Intent( this, SettingsActivity.class ));
+				return true;
+
+			case R.id.action_helpAndFeedback:
+				startActivity( new Intent( this, HelpAndFeedbackActivity.class ));
+				return true;
 		}
 
 		return super.onOptionsItemSelected( item );
@@ -87,6 +100,8 @@ public class HomeActivity extends ActionBarActivity {
 	class ViewHolder extends RecyclerView.ViewHolder {
 		//----------------------------------------------------------------------
 
+		int index;
+
 		@InjectView( R.id.avatar    ) ImageView avatar;
 		@InjectView( R.id.primary   ) TextView primary;
 		@InjectView( R.id.secondary ) TextView secondary;
@@ -96,6 +111,13 @@ public class HomeActivity extends ActionBarActivity {
 		public ViewHolder( View itemView ) {
 			super( itemView );
 			ButterKnife.inject( this, itemView );
+		}
+
+		//----------------------------------------------------------------------
+
+		@OnClick( R.id.item )
+		void onItemClick() {
+			startActivity( new Intent( OverviewActivity.this, ConversationActivity.class ));
 		}
 
 		//----------------------------------------------------------------------
