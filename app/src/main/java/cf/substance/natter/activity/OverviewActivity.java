@@ -1,5 +1,6 @@
 package cf.substance.natter.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,8 +49,18 @@ public class OverviewActivity extends ActionBarActivity {
 	@Override
 	public boolean onOptionsItemSelected( MenuItem item ) {
 		switch( item.getItemId() ) {
+
+			case R.id.action_archived:
+				startActivity( new Intent( this, ArchivedActivity.class ));
+				return true;
+
 			case R.id.action_settings:
-			return true;
+				startActivity( new Intent( this, SettingsActivity.class ));
+				return true;
+
+			case R.id.action_helpAndFeedback:
+				startActivity( new Intent( this, HelpAndFeedbackActivity.class ));
+				return true;
 		}
 
 		return super.onOptionsItemSelected( item );
