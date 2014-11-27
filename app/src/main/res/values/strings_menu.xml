@@ -1,5 +1,7 @@
 <resources>
 
+	<string name="action_archived">Archived</string>
     <string name="action_settings">Settings</string>
+	<string name="action_helpAndFeedback">Help &amp; feedback</string>
 
 </resources>
