@@ -15,9 +15,9 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
 		android:layout_marginLeft="@dimen/keyline_content"
-		android:includeFontPadding="false"
 
 		android:paddingTop="20dip"
+		android:singleLine="true"
 
 		style="@style/Text.Subhead"
 
@@ -30,6 +30,7 @@
 		android:layout_marginLeft="@dimen/keyline_content"
 
 		android:paddingBottom="20dip"
+		android:singleLine="true"
 
 		style="@style/Text.Body1"
 
