@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cf.substance.natter" >
 
+	<uses-permission android:name="android.permission.RECEIVE_SMS" />
+	<uses-permission android:name="android.permission.READ_SMS"/>
+
+	<uses-feature android:name="android.hardware.telephony" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,6 +38,57 @@
 
 	    <activity android:name=".activity.HelpAndFeedbackActivity"
 		    android:label="@string/activityLabel_helpAndFeedback" />
+
+
+	    <activity android:name=".activity.ComposeActivity">
+
+		    <intent-filter>
+			    <action android:name="android.intent.action.SEND" />
+			    <action android:name="android.intent.action.SENDTO" />
+			    <data android:scheme="sms" />
+			    <data android:scheme="smsto" />
+			    <data android:scheme="mms" />
+			    <data android:scheme="mmsto" />
+		    </intent-filter>
+
+	    </activity>
+
+	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+	    <service android:name=".service.AutoRespondService"
+		    android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+
+		    <intent-filter>
+			    <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+			    <data android:scheme="sms" />
+			    <data android:scheme="smsto" />
+			    <data android:scheme="mms" />
+			    <data android:scheme="mmsto" />
+		    </intent-filter>
+
+	    </service>
+
+	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+	    <receiver android:name=".receiver.SmsReceiver"
+		    android:permission="android.permission.BROADCAST_SMS">
+
+		    <intent-filter>
+			    <action android:name="android.provider.Telephony.SMS_DELIVER" />
+		    </intent-filter>
+
+	    </receiver>
+
+
+	    <receiver android:name=".receiver.MmsReceiver"
+		    android:permission="android.permission.BROADCAST_WAP_PUSH">
+
+		    <intent-filter>
+			    <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
+			    <data android:mimeType="application/vnd.wap.mms-message" />
+		    </intent-filter>
+
+	    </receiver>
 
 	    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
