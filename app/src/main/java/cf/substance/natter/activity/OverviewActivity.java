@@ -1,10 +1,15 @@
 package cf.substance.natter.activity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.Telephony;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,33 +27,48 @@ import cf.substance.natter.R;
 public class OverviewActivity extends ActionBarActivity {
 	//--------------------------------------------------------------------------
 
+	private static final String[]
+
+		INBOX_PROJECTION = new String[]{
+			Telephony.Sms.Inbox.ADDRESS,
+			Telephony.Sms.Inbox.DATE,
+			Telephony.Sms.Inbox.BODY },
+
+		CONTACT_PROJECTION = new String[]{
+			ContactsContract.PhoneLookup.DISPLAY_NAME,
+			ContactsContract.Data.PHOTO_THUMBNAIL_URI
+		};
+
+	private Cursor conversations;
+	private RecyclerView.Adapter adapter;
+
 	@InjectView( R.id.list ) RecyclerView list;
 
 	//--------------------------------------------------------------------------
 
-	@Override
-	protected void onCreate( Bundle savedInstanceState ) {
+	@Override protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
 		setContentView( R.layout.activity_overview );
 
 		ButterKnife.inject( this );
 
+		updateSmsList();
+
+		adapter = new DemoAdapter();
 		list.setLayoutManager( new LinearLayoutManager( this ));
-		list.setAdapter( new DemoAdapter() );
+		list.setAdapter( adapter );
 	}
 
 	//--------------------------------------------------------------------------
 
-	@Override
-	public boolean onCreateOptionsMenu( Menu menu ) {
+	@Override public boolean onCreateOptionsMenu( Menu menu ) {
 		getMenuInflater().inflate( R.menu.activity_overview, menu );
 		return true;
 	}
 
 	//--------------------------------------------------------------------------
 
-	@Override
-	public boolean onOptionsItemSelected( MenuItem item ) {
+	@Override public boolean onOptionsItemSelected( MenuItem item ) {
 		switch( item.getItemId() ) {
 
 			case R.id.action_archived:
@@ -69,12 +89,25 @@ public class OverviewActivity extends ActionBarActivity {
 
 	//--------------------------------------------------------------------------
 
+	private void updateSmsList() {
+		conversations = getContentResolver().query(
+			Telephony.Sms.Inbox.CONTENT_URI,
+			INBOX_PROJECTION,
+			null,
+			null,
+			Telephony.Sms.Inbox.DEFAULT_SORT_ORDER );
+		if ( adapter != null ) adapter.notifyDataSetChanged();
+	}
+
+	//--------------------------------------------------------------------------
+
 	//==========================================================================
 	class DemoAdapter extends RecyclerView.Adapter<ViewHolder> {
 		//----------------------------------------------------------------------
 
 		@Override public int getItemCount() {
-			return 3;
+			try { return conversations.getCount(); }
+			catch( Exception e ) { return 0; }
 		}
 
 		//----------------------------------------------------------------------
@@ -87,9 +120,28 @@ public class OverviewActivity extends ActionBarActivity {
 		//----------------------------------------------------------------------
 
 		@Override public void onBindViewHolder( ViewHolder holder, int position ) {
+			conversations.moveToPosition( position );
+
 			holder.avatar.setBackgroundColor( getResources().getColor( R.color.black_a12 ));
-			holder.primary.setText( "Item " + position );
-			holder.secondary.setText( "Lorem slipstream Dolan sits if he fits" );
+
+			// Sender name and picture
+			// TODO This is astonishingly inefficient!
+			Uri uri = Uri.withAppendedPath( ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode( conversations.getString( 0 )));
+			Log.d( "Natter", "Uri = " + uri );
+			Cursor c = getContentResolver().query(
+				uri,
+				CONTACT_PROJECTION,
+				null, null, null );
+			if ( c.moveToFirst() ) {
+				holder.primary.setText( c.getString( 0 ));
+				holder.avatar.setImageURI( Uri.parse( c.getString( 1 )));
+
+			} else {
+				holder.primary.setText( "failed to get name" );
+			}
+			c.close();
+
+			holder.secondary.setText( conversations.getString( 2 ));
 		}
 
 		//----------------------------------------------------------------------
