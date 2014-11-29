@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
+import android.widget.Toast;
 
 //==============================================================================
 public class SmsReceiver extends BroadcastReceiver {
@@ -25,7 +26,9 @@ public class SmsReceiver extends BroadcastReceiver {
 	//--------------------------------------------------------------------------
 
 	private void onSmsReceived( Context context, SmsMessage[] messages ) {
-
+		StringBuilder body = new StringBuilder();
+		for ( SmsMessage msg : messages ) body.append( msg.getDisplayMessageBody() );
+		Toast.makeText( context, body.toString(), Toast.LENGTH_LONG ).show();
 	}
 
 	//--------------------------------------------------------------------------
